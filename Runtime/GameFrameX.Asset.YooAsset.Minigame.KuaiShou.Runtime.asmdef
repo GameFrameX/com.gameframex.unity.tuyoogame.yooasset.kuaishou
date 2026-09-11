@@ -1,0 +1,23 @@
+{
+  "name": "GameFrameX.Asset.YooAsset.Minigame.KuaiShou.Runtime",
+  "rootNamespace": "GameFrameX.Asset.YooAsset.Minigame.KuaiShou.Runtime",
+  "references": [
+    "kuaishou.runtime",
+    "YooAsset"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "com.kuaishou.minigame",
+      "expression": "",
+      "define": "ENABLE_KUAISHOU_MINI_GAME"
+    }
+  ],
+  "noEngineReferences": false
+}

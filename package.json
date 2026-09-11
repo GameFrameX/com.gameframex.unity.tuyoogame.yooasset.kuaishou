@@ -1,0 +1,34 @@
+{
+  "name": "com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou",
+  "displayName": "Game Frame X YooAsset MiniGame KuaiShou",
+  "category": "Game Framework X",
+  "description": "YooAsset KuaiShou MiniGame support | YooAsset 快手小游戏适配",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "keywords": [
+    "GameFrameX",
+    "YooAsset",
+    "KuaiShou",
+    "MiniGame"
+  ],
+  "repository": {
+    "name": "com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou",
+    "url": "git+https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou.git",
+    "type": "git"
+  },
+  "author": {
+    "name": "Blank",
+    "email": "alianblank@outlook.com",
+    "url": "https://alianblank.com/"
+  },
+  "dependencies": {
+    "com.gameframex.unity.tuyoogame.yooasset": "2.9.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.cnb.cool/GameFrameX/npm/-/packages/"
+  },
+  "documentationUrl": "https://gameframex.doc.alianblank.com",
+  "changelogUrl": "https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou/blob/main/LICENSE.md"
+}
