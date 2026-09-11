@@ -1,4 +1,4 @@
-#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME
+#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME && KUAISHOUMINIGAME
 
 // ==========================================================================================
 //   GameFrameX 组织及其衍生项目的版权、商标、专利及其他相关权利
@@ -34,7 +34,7 @@ using UnityEngine;
 
 using YooAsset;
 
-namespace GameFrameX.Asset.YooAsset.Minigame.KuaiShou.Runtime
+namespace YooAsset.KuaiShou
 {
     /// <summary>
     /// 快手小游戏文件系统

@@ -31,14 +31,39 @@
 // ==========================================================================================
 
 using UnityEngine;
+using UnityEngine.Scripting;
 
-namespace GameFrameX.Asset.YooAsset.Minigame.KuaiShou.Runtime
+namespace YooAsset.KuaiShou
 {
-    public class GameFrameXYooAssetMinigameKuaiShouCroppingHelper : MonoBehaviour
+    /// <summary>
+    /// 防止代码运行时发生裁剪报错。将这个脚本添加到启动场景中。不会对逻辑有任何影响
+    /// </summary>
+    [Preserve]
+    [DisallowMultipleComponent]
+    public sealed class GameFrameXYooAssetMinigameKuaiShouCroppingHelper : MonoBehaviour
     {
+        private System.Type[] _types;
+
+        [UnityEngine.Scripting.Preserve]
         private void Start()
         {
-
+#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME && KUAISHOUMINIGAME
+            _types = new[]
+            {
+                typeof(KuaiShouFileSystem),
+                typeof(KuaiShouFileSystemCreater),
+                typeof(KSFSRequestPackageVersionOperation),
+                typeof(KSFSLoadPackageManifestOperation),
+                typeof(KSFSLoadBundleOperation),
+                typeof(KSFSInitializeOperation),
+                typeof(KSFSDownloadFileOperation),
+                typeof(RequestKuaiShouPackageVersionOperation),
+                typeof(RequestKuaiShouPackageHashOperation),
+                typeof(LoadKuaiShouPackageManifestOperation),
+                typeof(KuaiShouConfigHandler),
+                typeof(KuaiShouWebPlayModeFileSystemProvider),
+            };
+#endif
         }
     }
 }

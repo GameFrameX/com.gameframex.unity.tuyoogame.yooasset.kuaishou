@@ -1,8 +1,8 @@
 {
-  "name": "com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou",
-  "displayName": "Game Frame X YooAsset MiniGame KuaiShou",
+  "name": "com.gameframex.unity.tuyoogame.yooasset.kuaishou",
+  "displayName": "Game Frame X YooAsset KuaiShou",
   "category": "Game Framework X",
-  "description": "YooAsset KuaiShou MiniGame support | YooAsset 快手小游戏适配",
+  "description": "YooAsset KuaiShou mini-game FileSystem adapter | YooAsset 快手小游戏适配",
   "version": "1.0.0",
   "unity": "2019.4",
   "keywords": [
@@ -12,8 +12,8 @@
     "MiniGame"
   ],
   "repository": {
-    "name": "com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou",
-    "url": "git+https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou.git",
+    "name": "com.gameframex.unity.tuyoogame.yooasset.kuaishou",
+    "url": "git+https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou.git",
     "type": "git"
   },
   "author": {
@@ -22,13 +22,14 @@
     "url": "https://alianblank.com/"
   },
   "dependencies": {
-    "com.gameframex.unity.tuyoogame.yooasset": "2.9.4"
+    "com.gameframex.unity.tuyoogame.yooasset": "2.9.4",
+    "com.gameframex.unity.asset": "3.1.1"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.cnb.cool/GameFrameX/npm/-/packages/"
   },
   "documentationUrl": "https://gameframex.doc.alianblank.com",
-  "changelogUrl": "https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou/blob/main/CHANGELOG.md",
-  "licensesUrl": "https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.minigame.kuaishou/blob/main/LICENSE.md"
+  "changelogUrl": "https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/blob/main/LICENSE.md"
 }

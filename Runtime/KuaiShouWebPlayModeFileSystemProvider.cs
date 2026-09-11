@@ -1,9 +1,9 @@
 // ==========================================================================================
 //   GameFrameX 组织及其衍生项目的版权、商标、专利及其他相关权利
-//   GameFrameX organization and its derivative projects' copyrights, trademarks, patents, and related rights
+//   GameFrameX organization and its derivative projects' copyrights, trademarks, patents and related rights
 //   均受中华人民共和国及相关国际法律法规保护。
 //   are protected by the laws of the People's Republic of China and relevant international regulations.
-//   使用本项目须严格遵守相应法律法规及开源许可证之规定。
+//   使用本项目须严格遵守相应法律法规与开源许可证之规定。
 //   Usage of this project must strictly comply with applicable laws, regulations, and open-source licenses.
 //   本项目采用 MIT 许可证与 Apache License 2.0 双许可证分发，
 //   This project is dual-licensed under the MIT License and Apache License 2.0,
@@ -12,9 +12,9 @@
 //   禁止利用本项目实施任何危害国家安全、破坏社会秩序、
 //   It is prohibited to use this project to engage in any activities that endanger national security, disrupt social order,
 //   侵犯他人合法权益等法律法规所禁止的行为！
-//   or infringe upon the legitimate rights and interests of others, as prohibited by laws and regulations!
+//   or infringe upon the legal rights and interests of others, as prohibited by laws and regulations!
 //   因基于本项目二次开发所产生的一切法律纠纷与责任，
-//   Any legal disputes and liabilities arising from secondary development based on this project
+//   Any disputes or liabilities arising from secondary development based on this project
 //   本项目组织与贡献者概不承担。
 //   shall be borne solely by the developer; the project organization and contributors assume no responsibility.
 //   GitHub 仓库：https://github.com/GameFrameX
@@ -27,29 +27,58 @@
 //   Official Documentation: https://gameframex.doc.alianblank.com/
 //  ==========================================================================================
 
+using GameFrameX.Asset.Runtime;
+using GameFrameX.Runtime;
 using UnityEngine;
+using YooAsset;
 
 #if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME && KUAISHOUMINIGAME
 
-using YooAsset;
-
 namespace YooAsset.KuaiShou
 {
-    public class KuaiShouConfigHandler : MonoBehaviour
+    /// <summary>
+    /// 快手小游戏 Web 运行模式文件系统提供者
+    /// </summary>
+    [UnityEngine.Scripting.Preserve]
+    internal sealed class KuaiShouWebPlayModeFileSystemProvider : IWebPlayModeFileSystemProvider
     {
-        private float _timer = 0f;
-
-        private void Update()
+        public string ChannelName
         {
-            _timer += Time.deltaTime;
-            if (!(_timer >= 1f))
-            {
-                return;
-            }
+            get { return "KuaiShou"; }
+        }
+
+        public int Priority
+        {
+            get { return 2; }
+        }
+
+        public FileSystemParameters CreateFileSystemParameters(WebPlayModeProviderContext context)
+        {
+            // https://open.kuaishou.com/miniGameDocs/gameDev/Unity/Launchability/AssetBundle.html
 #if !UNITY_EDITOR
             KSWASM.KSBase.PreloadConcurrent(10);
 #endif
-            _timer = 0f;
+            // 强行控制并发数量
+            GameEntry.GetComponent<AssetComponent>().gameObject.GetOrAddComponent<KuaiShouConfigHandler>();
+            // 创建快手小游戏文件系统
+            if (context.HostServerURL.IsNullOrWhiteSpace())
+            {
+                return KuaiShouFileSystemCreater.CreateKuaiShouFileSystemParameters();
+            }
+
+            return KuaiShouFileSystemCreater.CreateKuaiShouPathFileSystemParameters(context.HostServerURL);
+        }
+
+        /// <summary>
+        /// 运行时自动注册
+        /// </summary>
+        internal static class Registrar
+        {
+            [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+            private static void Register()
+            {
+                WebPlayModeFileSystemProviderRegistry.Register(new KuaiShouWebPlayModeFileSystemProvider());
+            }
         }
     }
 }

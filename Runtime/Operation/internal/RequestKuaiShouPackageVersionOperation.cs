@@ -1,8 +1,8 @@
-#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME
+#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME && KUAISHOUMINIGAME
 using System;
 using YooAsset;
 
-namespace GameFrameX.Asset.YooAsset.Minigame.KuaiShou.Runtime
+namespace YooAsset.KuaiShou
 {
     [UnityEngine.Scripting.Preserve]
     internal class RequestKuaiShouPackageVersionOperation : AsyncOperationBase

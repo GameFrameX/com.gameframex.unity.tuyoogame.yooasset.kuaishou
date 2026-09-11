@@ -1,9 +1,9 @@
-#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME
+#if UNITY_WEBGL && ENABLE_KUAISHOU_MINI_GAME && KUAISHOUMINIGAME
 using UnityEngine;
 using UnityEngine.Networking;
 using YooAsset;
 
-namespace GameFrameX.Asset.YooAsset.Minigame.KuaiShou.Runtime
+namespace YooAsset.KuaiShou
 {
     [UnityEngine.Scripting.Preserve]
     internal class KSFSDownloadFileOperation : DefaultDownloadFileOperation
