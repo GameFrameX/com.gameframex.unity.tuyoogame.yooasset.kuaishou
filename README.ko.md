@@ -14,36 +14,36 @@
 [![Bilibili](https://img.shields.io/badge/-00A1D6?logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1yrpeepEn7)
 [![Gitee](https://img.shields.io/badge/-C71D23?logo=gitee&logoColor=white)](https://gitee.com/GameFrameX/gameframex)
 
-All-in-One Solution for Indie Game Development · Empowering Indie Developers' Dreams
+인디 게임 개발자를 위한 올인원 솔루션 · 인디 개발자의 꿈을 실현
 
 <br />
 
-[Documentation](https://gameframex.doc.alianblank.com) · [Quick Start](#quick-start) · QQ Group: 467608841 / 233840761
+[문서](https://gameframex.doc.alianblank.com) · [빠른 시작](#빠른-시작) · QQ 그룹: 467608841 / 233840761
 
 <br />
 
-**English** | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | **한국어**
 
 </div>
 
-## Project Overview
+## 프로젝트 개요
 
-`com.gameframex.unity.tuyoogame.yooasset.kuaishou` provides a YooAsset `IFileSystem` adapter for the **KuaiShou** mini-game platform on Unity WebGL, allowing GameFrameX games to load and cache AssetBundles through the KuaiShou runtime SDK.
+`com.gameframex.unity.tuyoogame.yooasset.kuaishou`은 Unity WebGL의 **KuaiShou(快手)** 미니게임 플랫폼을 위한 YooAsset `IFileSystem` 어댑터를 제공하여, GameFrameX 게임이 KuaiShou 런타임 SDK를 통해 AssetBundle을 로드하고 캐시할 수 있도록 합니다.
 
-## Features
+## 기능
 
-- Dedicated `IFileSystem` implementation targeting the KuaiShou mini-game runtime.
-- Tight integration with the KuaiShou SDK AssetBundle download and on-device cache.
-- Package version request, manifest loading, and bundle download/load wired through YooAsset's WebPlayMode pipeline.
-- Pluggable remote services (CDN, custom origin, decryption keys) and built-in bundle decryption hook.
+- KuaiShou 미니게임 런타임을 위한 전용 `IFileSystem` 구현.
+- KuaiShou SDK의 AssetBundle 다운로드 및 디바이스 내 캐시와 긴밀한 통합.
+- 패키지 버전 요청, 매니페스트 로딩, 번들 다운로드/로드를 YooAsset의 WebPlayMode 파이프라인에 연결.
+- 플러거블 원격 서비스(CDN, 사용자 지정 원본, 복호화 키)와 내장 번들 복호화 훅.
 
-## Quick Start
+## 빠른 시작
 
-### Installation
+### 설치
 
-Choose one of the following methods:
+다음 방법 중 하나를 선택하세요:
 
-1. Edit your Unity project's `Packages/manifest.json` and add a `scopedRegistries` section:
+1. Unity 프로젝트의 `Packages/manifest.json`을 편집하여 `scopedRegistries` 섹션을 추가하세요:
 
    ```json
    {
@@ -62,9 +62,9 @@ Choose one of the following methods:
    }
    ```
 
-   `scopes` controls which packages are resolved through this registry. Only packages whose names start with `com.gameframex` will be fetched from it.
+   `scopes`는 이 레지스트리를 통해 어떤 패키지를 해석할지 제어합니다. `com.gameframex`로 시작하는 패키지만 이 레지스트리에서 가져옵니다.
 
-2. Add the Git URL directly to `manifest.json` under `dependencies`:
+2. `manifest.json`의 `dependencies`에 직접 추가:
 
    ```json
    {
@@ -72,13 +72,13 @@ Choose one of the following methods:
    }
    ```
 
-3. In Unity's **Package Manager**, add via **Git URL**: `https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou.git`.
+3. Unity의 **Package Manager**에서 **Git URL**을 사용하여 추가: `https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou.git`
 
-4. Clone the repository into your Unity project's `Packages/` directory; it will be picked up automatically.
+4. 리포지토리를 Unity 프로젝트의 `Packages` 디렉토리에 클론하세요. 자동으로 로드됩니다.
 
-### Usage Examples
+### 사용 예시
 
-Hook the KuaiShou filesystem into YooAsset's WebPlayMode initialization:
+KuaiShou 파일 시스템을 YooAsset의 WebPlayMode 초기화에 연결합니다:
 
 ```csharp
 using YooAsset;
@@ -87,18 +87,18 @@ var createParameters = new WebPlayModeParameters();
 createParameters.WebFileSystemParameters = KuaiShouFileSystemCreater.CreateKuaiShouFileSystemParameters(remoteServices);
 ```
 
-## Dependencies
+## 의존성
 
-| Package | Description |
+| 패키지 | 설명 |
 | --- | --- |
-| com.gameframex.unity.tuyoogame.yooasset | Core YooAsset runtime & API. |
-| com.gameframex.unity.asset | GameFrameX asset/runtime integration. |
+| com.gameframex.unity.tuyoogame.yooasset | YooAsset 코어 런타임 및 API. |
+| com.gameframex.unity.asset | GameFrameX 에셋/런타임 통합. |
 
-## Documentation & Resources
+## 문서 및 자료
 
-- [Official Documentation](https://gameframex.doc.alianblank.com)
+- [공식 문서](https://gameframex.doc.alianblank.com)
 
-## Community & Support
+## 커뮤니티 및 지원
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GameFrameX/gameframex)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/VDWUjWMDw9)
@@ -111,10 +111,10 @@ createParameters.WebFileSystemParameters = KuaiShouFileSystemCreater.CreateKuaiS
 [![Gitee](https://img.shields.io/badge/Gitee-C71D23?style=for-the-badge&logo=gitee&logoColor=white)](https://gitee.com/GameFrameX/gameframex)
 ![QQ](https://img.shields.io/badge/QQ-467608841%2F233840761-EB1923?style=for-the-badge&logo=qq&logoColor=white)
 
-## Changelog
+## 변경 로그
 
-See [Releases](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/releases) for the changelog.
+변경 로그는 [Releases](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/releases)를 확인하세요.
 
-## License
+## 라이선스
 
-See [LICENSE.md](LICENSE.md) for license information.
+자세한 내용은 [LICENSE.md](LICENSE.md) 파일을 참조하세요.
