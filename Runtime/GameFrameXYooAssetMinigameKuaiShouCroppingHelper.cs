@@ -62,6 +62,7 @@ namespace YooAsset.KuaiShou
                 typeof(LoadKuaiShouPackageManifestOperation),
                 typeof(KuaiShouConfigHandler),
                 typeof(KuaiShouWebPlayModeFileSystemProvider),
+                typeof(KuaiShouWebPlayModeFileSystemProvider.Registrar),
             };
 #endif
         }

@@ -76,6 +76,10 @@
 
 4. 리포지토리를 Unity 프로젝트의 `Packages` 디렉토리에 클론하세요. 자동으로 로드됩니다.
 
+### 업그레이드 안내 (1.1.0)
+
+이번 버전은 파괴적 변경입니다: 이 패키지는 더 이상 `com.gameframex.unity.asset`에 의존하지 않습니다. 동시에 `com.gameframex.unity.tuyoogame.yooasset`를 ≥ 3.1.0으로 업그레이드하세요. 프로젝트에 `com.gameframex.unity.asset`가 설치되어 있다면 ≥ 4.1.0으로 업그레이드하세요.
+
 ### 사용 예시
 
 KuaiShou 파일 시스템을 YooAsset의 WebPlayMode 초기화에 연결합니다:
@@ -91,8 +95,11 @@ createParameters.WebFileSystemParameters = KuaiShouFileSystemCreater.CreateKuaiS
 
 | 패키지 | 설명 |
 | --- | --- |
-| com.gameframex.unity.tuyoogame.yooasset | YooAsset 코어 런타임 및 API. |
-| com.gameframex.unity.asset | GameFrameX 에셋/런타임 통합. |
+| com.gameframex.unity.tuyoogame.yooasset | YooAsset 코어 런타임 및 API (≥ 3.1.0). |
+
+## 등록 즉 디스패치 방식
+
+이 패키지의 Registrar는 자체 `IWebPlayModeFileSystemProvider`(KuaiShou의 Priority 2)를 메인 패키지의 `WebPlayModeFileSystemProviderRegistry`에 자동 등록하므로, 설치만으로 디스패치가 활성화되며 플랫폼 분기가 필요 없습니다. 에셋 추상화 계층은 첫 Web 플레이 모드 초기화 시 Priority로 상호 배타적으로 해결하며(Priority가 가장 높은 것이 우선, 동일하면 먼저 등록된 것), 한 번의 초기화에서 하나의 플랫폼만 선택됩니다. 등록은 `BeforeSceneLoad` 단계에서 수행되어 첫 Web 초기화보다 이르므로 Provider는 항상 준비됩니다.
 
 ## 문서 및 자료
 

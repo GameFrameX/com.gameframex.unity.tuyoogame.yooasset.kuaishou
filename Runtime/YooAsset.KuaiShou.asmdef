@@ -4,9 +4,7 @@
   "references": [
     "kuaishou.runtime",
     "YooAsset",
-    "YooAsset.Runtime",
-    "GameFrameX.Runtime",
-    "GameFrameX.Asset.Runtime"
+    "YooAsset.Runtime"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

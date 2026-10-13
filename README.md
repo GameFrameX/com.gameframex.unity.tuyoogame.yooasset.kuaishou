@@ -76,6 +76,10 @@ Choose one of the following methods:
 
 4. Clone the repository into your Unity project's `Packages/` directory; it will be picked up automatically.
 
+### Upgrade Notes (1.1.0)
+
+This is a breaking change: the package no longer depends on `com.gameframex.unity.asset`. Upgrade `com.gameframex.unity.tuyoogame.yooasset` to ≥ 3.1.0 at the same time; if your project also installs `com.gameframex.unity.asset`, upgrade it to ≥ 4.1.0.
+
 ### Usage Examples
 
 Hook the KuaiShou filesystem into YooAsset's WebPlayMode initialization:
@@ -91,8 +95,11 @@ createParameters.WebFileSystemParameters = KuaiShouFileSystemCreater.CreateKuaiS
 
 | Package | Description |
 | --- | --- |
-| com.gameframex.unity.tuyoogame.yooasset | Core YooAsset runtime & API. |
-| com.gameframex.unity.asset | GameFrameX asset/runtime integration. |
+| com.gameframex.unity.tuyoogame.yooasset | Core YooAsset runtime & API (≥ 3.1.0). |
+
+## Register-and-Dispatch Mechanism
+
+The package's Registrar self-registers its `IWebPlayModeFileSystemProvider` (Priority 2) into the main YooAsset package's `WebPlayModeFileSystemProviderRegistry`, so installation alone enables dispatch with no platform branching. The asset abstraction layer resolves providers by Priority during the first Web play mode initialization — the highest Priority wins (first registered wins on ties), so only one platform is selected per initialization. Registration runs at the `BeforeSceneLoad` stage, earlier than the first Web initialization, so the provider is always ready.
 
 ## Documentation & Resources
 
