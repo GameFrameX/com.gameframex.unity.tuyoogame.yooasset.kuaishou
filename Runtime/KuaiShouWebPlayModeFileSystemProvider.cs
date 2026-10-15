@@ -80,7 +80,7 @@ namespace YooAsset.KuaiShou
             }
 
             var host = new GameObject("YooAsset.KuaiShou.ConfigHandler");
-            DontDestroyOnLoad(host);
+            UnityEngine.Object.DontDestroyOnLoad(host);
             host.hideFlags = HideFlags.HideInHierarchy;
             _configHandler = host.AddComponent<KuaiShouConfigHandler>();
         }
