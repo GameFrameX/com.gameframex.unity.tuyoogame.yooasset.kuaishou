@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/compare/2.0.0...2.0.1) (2026-10-15)
+
+
+### Bug Fixes
+
+* **provider:** 显式限定 DontDestroyOnLoad 类型归属 ([a9f8a61](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/commit/a9f8a615235ed32da2fba5ad06a3f7dee9c2a35f))
+
 # [2.0.0](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/compare/1.0.0...2.0.0) (2026-10-15)
 
 
