@@ -115,6 +115,11 @@ namespace YooAsset.KuaiShou
         /// </summary>
         public IRemoteServices RemoteServices { private set; get; } = null;
 
+        /// <summary>
+        /// 自定义参数：文件系统选项（直载 bundle 重试参数；未传时保持默认实例，永不为 null）
+        /// </summary>
+        public KuaiShouFileSystemOption Option { private set; get; } = new KuaiShouFileSystemOption();
+
         #endregion
 
         [UnityEngine.Scripting.Preserve]
@@ -197,6 +202,10 @@ namespace YooAsset.KuaiShou
             if (name == FileSystemParametersDefine.REMOTE_SERVICES)
             {
                 RemoteServices = (IRemoteServices)value;
+            }
+            else if (name == KuaiShouFileSystemOption.ParameterKey)
+            {
+                Option = (KuaiShouFileSystemOption)value ?? new KuaiShouFileSystemOption();
             }
             else
             {
