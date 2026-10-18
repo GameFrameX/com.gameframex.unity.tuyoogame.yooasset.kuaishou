@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/compare/2.0.1...2.1.0) (2026-10-18)
+
+
+### Features
+
+* **filesystem:** 直载重试参数 Option 化并派生基类 ([ffe9f66](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/commit/ffe9f66c2439ce142a63021e1e30340a5074b66a))
+
 ## [2.0.1](https://github.com/gameframex/com.gameframex.unity.tuyoogame.yooasset.kuaishou/compare/2.0.0...2.0.1) (2026-10-15)
 
 
